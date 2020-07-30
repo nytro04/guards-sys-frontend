@@ -44,28 +44,16 @@
         <nuxt />
       </v-container>
     </v-main>
-    <!-- <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer> -->
-    <v-footer :fixed="fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+
+    <Footer />
   </v-app>
 </template>
 
 <script>
 export default {
   components: {
-    Navbar: () => import('@/components/layout/Navbar')
+    Navbar: () => import('@/components/layout/Navbar'),
+    Footer: () => import('@/components/layout/Footer')
   },
   data() {
     return {
