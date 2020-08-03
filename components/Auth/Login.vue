@@ -1,7 +1,9 @@
 <template>
-  <div class="container">
-    <h2>Login / Register</h2>
-  </div>
+  <header class="login">
+    <div class="container">
+      <h2>Login / Register</h2>
+    </div>
+  </header>
 </template>
 
 <script>
