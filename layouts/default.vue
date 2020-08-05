@@ -52,7 +52,7 @@
 <script>
 export default {
   components: {
-    Navbar: () => import('@/components/layout/Navbar'),
+    Navbar: () => import('@/components/layout/Navbar'), // only load global components eg. navbar and footer in the defaults layout.
     Footer: () => import('@/components/layout/Footer')
   },
   data() {

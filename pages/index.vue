@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="">
     <Login />
   </div>
 </template>
@@ -8,6 +8,7 @@
 export default {
   components: {
     Login: () => import('~/components/Auth/Login')
-  }
+  },
+  layout: 'login'
 }
 </script>
