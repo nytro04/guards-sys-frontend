@@ -32,9 +32,22 @@ const state = {
   }
 }
 
+const getters = {
+  /**
+   * @desc Get the authenticated token for user
+   * @param {Object} state
+   * @returns {String} token
+   *
+   */
+  getToken(state) {
+    return state.auth.token
+  }
+}
+
 const namespaced = true
 
 export default {
   state,
+  getters,
   namespaced
 }
