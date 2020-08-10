@@ -1,10 +1,14 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
 
 export default {
   mode: 'universal',
   /*
    ** Headers of the page
    */
+  env: {
+    VUE_APP_BASE_API_URL
+  },
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
