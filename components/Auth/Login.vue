@@ -12,10 +12,10 @@
               <v-card-text>
                 <v-form>
                   <v-text-field
-                    label="Login"
-                    name="login"
+                    label="Email"
+                    name="email"
                     prepend-icon="mdi-account"
-                    type="text"
+                    type="email"
                   ></v-text-field>
 
                   <v-text-field
@@ -41,8 +41,14 @@
 
 <script>
 export default {
-  props: {
-    source: String
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
   }
+  // props: {
+  //   source: String
+  // }
 }
 </script>

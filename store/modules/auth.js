@@ -1,3 +1,6 @@
+import { AUTHENTICATE } from '../mutation-type'
+import UserServices from '~/service/auth'
+
 const tokenName = 'guards-sys-token'
 const userName = 'guards-sys-user'
 const checkType = (value) => {
@@ -44,10 +47,38 @@ const getters = {
   }
 }
 
+const actions = {
+  /**
+   * action commits allows us to pass data from an action to a mutation
+   * it takes the name of the function as string adn the data you are passing
+   */
+
+  async authenticateUser({ commit }, credentials) {
+    try {
+      const response = await UserServices.authenticateUser(credentials)
+      commit(AUTHENTICATE, response)
+      return await Promise.resolve(response)
+    } catch (error) {
+      return await Promise.reject(error)
+    }
+  }
+  // authenticateUser({ commit }, credentials) {
+  //   return UserServices.authenticateUser(credentials)
+  //     .then((response) => {
+  //       commit(AUTHENTICATE, response)
+  //       return Promise.resolve(response)
+  //     })
+  //     .catch((error) => {
+  //       return Promise.reject(error)
+  //     })
+  // }
+}
+
 const namespaced = true
 
 export default {
   state,
   getters,
+  actions,
   namespaced
 }

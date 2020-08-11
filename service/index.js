@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import Config from './config'
+import Config from '~/config'
 import store from '~/store'
 
 export const axios = Axios.create({
