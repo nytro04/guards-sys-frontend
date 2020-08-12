@@ -25,12 +25,12 @@ const state = {
    * token: checktype, if exist (true) return value else return null
    */
   auth: {
-    isLoggedIn: !!localStorage.getItem(tokenName),
-    user: checkType(localStorage.getItem(userName))
-      ? JSON.parse(localStorage.getItem(userName))
+    isLoggedIn: !!window.localStorage.getItem(tokenName),
+    user: checkType(window.localStorage.getItem(userName))
+      ? JSON.parse(window.localStorage.getItem(userName))
       : {},
-    token: checkType(localStorage.getItem(tokenName))
-      ? localStorage.getItem(tokenName)
+    token: checkType(window.localStorage.getItem(tokenName))
+      ? window.localStorage.getItem(tokenName)
       : null
   }
 }
