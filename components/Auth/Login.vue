@@ -46,20 +46,20 @@ export default {
       email: '',
       password: ''
     }
-  },
-  head() {
-    return {
-      title: 'title',
-      titleTemplate: `%s ${this.email} - Guard sys`,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'custom description'
-        }
-      ]
-    }
   }
+  // head() {
+  //   return {
+  //     title: 'title',
+  //     titleTemplate: `%s ${this.email} - Guard sys`,
+  //     meta: [
+  //       {
+  //         hid: 'description',
+  //         name: 'description',
+  //         content: 'custom description'
+  //       }
+  //     ]
+  //   }
+  // }
   // props: {
   //   source: String
   // }

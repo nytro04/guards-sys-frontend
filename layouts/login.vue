@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <nuxt />
   </div>
 </template>
@@ -8,4 +9,8 @@
 export default {}
 </script>
 
-<style></style>
+<style>
+/**
+* todo:   sytle login landing page here
+ */
+</style>

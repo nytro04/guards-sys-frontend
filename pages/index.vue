@@ -9,6 +9,21 @@ export default {
   components: {
     Login: () => import('~/components/Auth/Login')
   },
+  head() {
+    return {
+      title: '',
+      // %s represents title from child pages
+      titleTemplate: `%s ${this.email} - Guard sys`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'custom description'
+        }
+      ]
+    }
+  },
+  // layout can only be in top level pages
   layout: 'login'
 }
 </script>
