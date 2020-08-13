@@ -1,9 +1,9 @@
 import Axios from 'axios'
-import Config from '~/config'
+// import Config from '~/config' 
 import store from '~/store'
 
 export const axios = Axios.create({
-  baseURL: Config[process.env.NODE_ENV].baseURL,
+  // baseURL: Config[process.env.NODE_ENV].baseURL,
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
     'Content-Type': 'application/json'
