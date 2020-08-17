@@ -43,8 +43,12 @@
 export default {
   data() {
     return {
-      email: '',
-      password: ''
+      valid: false,
+      showPassword: false,
+      userInfo: {
+        email: '',
+        password: ''
+      }
     }
   }
   // head() {
