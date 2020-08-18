@@ -35,7 +35,12 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn :disabled="!isValid" color="primary">Login</v-btn>
+                <v-btn
+                  :disabled="!isValid"
+                  color="primary"
+                  @click.prevent="loginUser"
+                  >Login</v-btn
+                >
               </v-card-actions>
             </v-card>
           </v-col>
@@ -47,14 +52,17 @@
 
 <script>
 export default {
+  // props: {
+  //   loginUser
+  // },
   data() {
     return {
       // this.$refs.form.reset to reset form after form submission
       isValid: true,
       showPassword: false,
       userInfo: {
-        email: '',
-        password: ''
+        email: 'user@email.com',
+        password: '!12345678S'
       },
       emailRules: [
         (v) => !!v || 'Email is required',
@@ -75,6 +83,18 @@ export default {
           /([!@#$%^&*])/.test(v) ||
           'Password must have at least one(1) special character eg. !@#$%^&*'
       ]
+    }
+  },
+  methods: {
+    loginUser() {
+      // eslint-disable-next-line no-console
+      console.log('this was called')
+
+      this.$auth.loginWith('local', {
+        data: this.userInfo
+      })
+
+      // this.$refs.form.reset()
     }
   },
   head() {

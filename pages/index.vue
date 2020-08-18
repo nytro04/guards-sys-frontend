@@ -13,7 +13,7 @@ export default {
     return {
       title: '',
       // %s represents title from child pages
-      titleTemplate: `%s ${this.email} - Guard sys`,
+      // titleTemplate: `%s ${this.email} - Guard sys`,
       meta: [
         {
           hid: 'description',
