@@ -10,7 +10,7 @@
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card-text>
-                <v-form v-model="isValid" lazy-validation>
+                <v-form ref="form" v-model="isValid">
                   <v-text-field
                     v-model="userInfo.email"
                     label="Email"
@@ -49,7 +49,8 @@
 export default {
   data() {
     return {
-      valid: false,
+      // this.$refs.form.reset to reset form after form submission
+      isValid: true,
       showPassword: false,
       userInfo: {
         email: '',
@@ -75,20 +76,20 @@ export default {
           'Password must have at least one(1) special character eg. !@#$%^&*'
       ]
     }
+  },
+  head() {
+    return {
+      title: 'Login',
+      // titleTemplate: `%s ${this.email} - Guard sys`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'custom description'
+        }
+      ]
+    }
   }
-  // head() {
-  //   return {
-  //     title: 'title',
-  //     titleTemplate: `%s ${this.email} - Guard sys`,
-  //     meta: [
-  //       {
-  //         hid: 'description',
-  //         name: 'description',
-  //         content: 'custom description'
-  //       }
-  //     ]
-  //   }
-  // }
   // props: {
   //   source: String
   // }
