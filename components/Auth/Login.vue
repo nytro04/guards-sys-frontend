@@ -10,26 +10,32 @@
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card-text>
-                <v-form>
+                <v-form v-model="isValid" lazy-validation>
                   <v-text-field
+                    v-model="userInfo.email"
                     label="Email"
                     name="email"
                     prepend-icon="mdi-account"
                     type="email"
+                    :rules="emailRules"
+                    required
                   ></v-text-field>
 
                   <v-text-field
                     id="password"
+                    v-model="userInfo.password"
                     label="Password"
                     name="password"
                     prepend-icon="mdi-lock"
                     type="password"
+                    :rules="passwordRules"
+                    required
                   ></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary">Login</v-btn>
+                <v-btn :disabled="!isValid" color="primary">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -48,7 +54,26 @@ export default {
       userInfo: {
         email: '',
         password: ''
-      }
+      },
+      emailRules: [
+        (v) => !!v || 'Email is required',
+        (v) =>
+          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+          'Please provide a valid email'
+      ],
+      passwordRules: [
+        (v) => !!v || 'Password is required',
+        (v) =>
+          (v && v.length >= 8) || 'Password is be eight(8) or more characters',
+        (v) =>
+          /(?=.*[A-Z])/.test(v) ||
+          'Password must have at least one(1) uppercase',
+        (v) =>
+          /(?=.*\d)/.test(v) || 'Password must have at least one(1) number',
+        (v) =>
+          /([!@#$%^&*])/.test(v) ||
+          'Password must have at least one(1) special character eg. !@#$%^&*'
+      ]
     }
   }
   // head() {
