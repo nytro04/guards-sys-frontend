@@ -1,13 +1,14 @@
 <template>
   <div class="">
-    <Login />
+    <h1>Home page</h1>
+    <!-- <Login /> -->
   </div>
 </template>
 
 <script>
 export default {
   components: {
-    Login: () => import('~/components/Auth/Login')
+    // Login: () => import('~/components/Auth/Login')
   },
   head() {
     return {
@@ -22,8 +23,8 @@ export default {
         }
       ]
     }
-  },
+  }
   // layout can only be in top level pages
-  layout: 'login'
+  // layout: 'login'
 }
 </script>

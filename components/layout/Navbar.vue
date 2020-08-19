@@ -26,9 +26,9 @@ export default {
     //   //   default: false
     // },
     // drawer: {
-    //   type: Boolean
-    //   //   default: false
-    // },
+    //   type: Boolean,
+    //   default: false
+    // }
     // fixed: {
     //   type: Boolean
     //   //   default: false

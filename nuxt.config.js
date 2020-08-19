@@ -111,7 +111,13 @@ export default {
             propertyName: 'token'
           },
           logout: { url: '/auth/logout', method: 'post' },
-          user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
+          user: {
+            url: '/users/login',
+            method: 'post',
+            propertyName: 'user'
+          }
+
+          // user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
         }
         // tokenRequired: true,
         // tokenType: 'bearer',

@@ -61,8 +61,8 @@ export default {
       isValid: true,
       showPassword: false,
       userInfo: {
-        email: 'user@email.com',
-        password: '!12345678S'
+        email: '',
+        password: ''
       },
       emailRules: [
         (v) => !!v || 'Email is required',
@@ -73,10 +73,11 @@ export default {
       passwordRules: [
         (v) => !!v || 'Password is required',
         (v) =>
-          (v && v.length >= 8) || 'Password is be eight(8) or more characters',
+          (v && v.length >= 8) ||
+          'Password must be eight(8) or more characters',
         (v) =>
           /(?=.*[A-Z])/.test(v) ||
-          'Password must have at least one(1) uppercase',
+          'Password must have at least one(1) uppercase letter',
         (v) =>
           /(?=.*\d)/.test(v) || 'Password must have at least one(1) number',
         (v) =>
@@ -87,14 +88,11 @@ export default {
   },
   methods: {
     loginUser() {
-      // eslint-disable-next-line no-console
-      console.log('this was called')
-
       this.$auth.loginWith('local', {
         data: this.userInfo
       })
 
-      // this.$refs.form.reset()
+      this.$refs.form.reset()
     }
   },
   head() {
