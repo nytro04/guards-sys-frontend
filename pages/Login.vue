@@ -8,7 +8,8 @@
 export default {
   components: {
     Login: () => import('~/components/Auth/Login')
-  }
+  },
+  layout: 'login'
 }
 </script>
 

@@ -11,11 +11,11 @@
     >
       <v-list-item>
         <v-list-item-avatar>
-          <img src="https://randomuser.me/api/portraits/men/81.jpg" />
+          <img src="~/assets/img/guard-sys-logo-temp.jpg" />
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title class="title">
-            Application
+            Guard-sys
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -92,7 +92,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Guard-sys'
     }
   }
 }
