@@ -68,8 +68,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: process.env.API_URL,
-    credentials: true
+    baseURL: process.env.API_URL
+    // credentials: true
   },
   /*
    ** vuetify module configuration
@@ -103,26 +103,35 @@ export default {
     extend(config, ctx) {}
   },
   auth: {
+    redirect: {
+      login: '/users/login',
+      logout: '/users/logout', // change to login later. check article
+      home: '/'
+    },
     strategies: {
       local: {
         endpoints: {
           login: {
             url: '/users/login',
             method: 'post',
-            propertyName: 'false'
-            // propertyName: 'token'
+            propertyName: 'token'
+            // propertyName: 'false'
           },
-          logout: { url: '/auth/logout', method: 'post' },
-          user: {
-            url: '/users/login',
-            method: 'post',
-            propertyName: 'user'
-          }
+          logout: false,
+          user: false // set to false because we dont have a user endpoint
+          // logout: { url: '/auth/logout', method: 'post' },
+          // user: {
+          //   url: '/users/login',
+          //   method: 'post',
+          //   propertyName: 'user'
+          // }
 
           // user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
         },
+        // tokenType: '',
+        tokenName: 'guards-jwt'
         // tokenRequired: true,
-        tokenType: 'bearer'
+        // tokenType: 'bearer'
         // globalToken: true,
         // autoFetchUser: true
       }

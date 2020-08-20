@@ -60,6 +60,7 @@ export default {
       // this.$refs.form.reset to reset form after form submission
       isValid: true,
       showPassword: false,
+      isLoading: false,
       userInfo: {
         email: '',
         password: ''
@@ -89,11 +90,19 @@ export default {
   methods: {
     async loginUser() {
       try {
-        await this.$auth.loginWith('local', {
+        this.isLoading = true
+        const res = await this.$auth.loginWith('local', {
           data: this.userInfo
         })
-        this.$refs.form.reset()
+        this.isLoading = false
+        const user = res.data.data.user
+        this.$auth.setUser(user)
+
+        console.log('User ==', this.$auth.user)
+        // this.$refs.form.reset()
       } catch (errors) {
+        this.isLoading = false
+
         console.log(errors)
       }
     }

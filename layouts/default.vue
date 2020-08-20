@@ -53,11 +53,11 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <div v-if="$auth.loggedIn">
-        {{ $auth.user }}
+        {{ $auth.user.email }}
         <v-btn>Logout</v-btn>
       </div>
-      <div v-else>
-        <v-btn text to="/login">Logout</v-btn>
+      <div v-if="!auth.loggedIn">
+        <v-btn @click.prevent="logOut" text to="/login">Logout</v-btn>
       </div>
       <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
@@ -74,6 +74,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   components: {
     // Navbar: () => import('@/components/layout/Navbar'), // only load global components eg. navbar and footer in the defaults layout.
@@ -100,6 +101,15 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Guard-sys'
+    }
+  },
+  computed: {
+    ...mapState(['auth'])
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('logOut')
+      this.$router.push('/login')
     }
   }
 }
