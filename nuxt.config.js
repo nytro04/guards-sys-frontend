@@ -68,7 +68,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'http://localhost:8888/api/v1'
+    baseURL: process.env.API_URL,
+    credentials: true
   },
   /*
    ** vuetify module configuration
@@ -108,7 +109,8 @@ export default {
           login: {
             url: '/users/login',
             method: 'post',
-            propertyName: 'token'
+            propertyName: 'false'
+            // propertyName: 'token'
           },
           logout: { url: '/auth/logout', method: 'post' },
           user: {
@@ -118,9 +120,9 @@ export default {
           }
 
           // user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
-        }
+        },
         // tokenRequired: true,
-        // tokenType: 'bearer',
+        tokenType: 'bearer'
         // globalToken: true,
         // autoFetchUser: true
       }

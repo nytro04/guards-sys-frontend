@@ -52,6 +52,13 @@
       </v-btn> -->
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <div v-if="$auth.loggedIn">
+        {{ $auth.user }}
+        <v-btn>Logout</v-btn>
+      </div>
+      <div v-else>
+        <v-btn text to="/login">Logout</v-btn>
+      </div>
       <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn> -->

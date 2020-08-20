@@ -87,12 +87,15 @@ export default {
     }
   },
   methods: {
-    loginUser() {
-      this.$auth.loginWith('local', {
-        data: this.userInfo
-      })
-
-      this.$refs.form.reset()
+    async loginUser() {
+      try {
+        await this.$auth.loginWith('local', {
+          data: this.userInfo
+        })
+        this.$refs.form.reset()
+      } catch (errors) {
+        console.log(errors)
+      }
     }
   },
   head() {
