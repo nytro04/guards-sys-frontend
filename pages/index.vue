@@ -23,7 +23,8 @@ export default {
         }
       ]
     }
-  }
+  },
+  middleware: 'auth'
   // layout can only be in top level pages
   // layout: 'login'
 }
