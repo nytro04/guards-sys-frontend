@@ -55,10 +55,11 @@
         {{ $auth.user.email }}
         <v-btn>Logout</v-btn>
       </div>
-      <div v-if="!auth.loggedIn">
-        <v-btn text to="/login">Logout</v-btn>
-        <!-- <v-btn @click.prevent="logOut" text to="/login">Logout</v-btn> -->
-      </div>
+
+      <!-- <div v-if="!auth.loggedIn"> -->
+      <!-- <v-btn @click.prevent="logOut" text to="/login">Logout</v-btn> -->
+      <!-- </div> -->
+
       <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn> -->
