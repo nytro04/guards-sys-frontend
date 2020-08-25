@@ -53,7 +53,8 @@
       <v-spacer />
       <div v-if="$auth.loggedIn">
         {{ $auth.user.email }}
-        <v-btn>Logout</v-btn>
+        <!-- todo: add api endpoint for logout to auth in nuxt config -->
+        <v-btn @click="$auth.logout()">Logout</v-btn>
       </div>
 
       <!-- <div v-if="!auth.loggedIn"> -->

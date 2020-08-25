@@ -109,7 +109,7 @@ export default {
     redirect: {
       login: '/login',
       logout: '/logout', // change to login later. check article
-      home: '/'
+       home: '/'
     },
     strategies: {
       local: {
