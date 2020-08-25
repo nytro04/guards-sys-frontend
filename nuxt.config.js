@@ -108,7 +108,7 @@ export default {
   auth: {
     redirect: {
       login: '/login',
-      // logout: '/logout', // change to login later. check article
+      logout: '/dashboard', // change to login later. check article
       home: '/'
     },
     strategies: {
@@ -120,7 +120,10 @@ export default {
             propertyName: 'token'
             // propertyName: 'false'
           },
-          logout: false,
+          logout: {
+            url: '/users/logout',
+            method: 'get'
+          },
           user: false // set to false because we dont have a user endpoint
           // logout: { url: '/auth/logout', method: 'post' },
           // user: {
