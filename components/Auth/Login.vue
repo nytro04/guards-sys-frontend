@@ -98,12 +98,12 @@ export default {
         const user = res.data.data.user
         this.$auth.setUser(user)
 
-        console.log('User ==', this.$auth.user)
+        // console.log('User ==', this.$auth.user)
         // this.$refs.form.reset()
       } catch (errors) {
         this.isLoading = false
 
-        console.log(errors)
+        // console.log(errors)
       }
     }
   },

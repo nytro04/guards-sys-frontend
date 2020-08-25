@@ -36,7 +36,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#eee' },
   /*
    ** Global CSS
    */
@@ -107,8 +107,8 @@ export default {
   },
   auth: {
     redirect: {
-      login: '/users/login',
-      logout: '/users/logout', // change to login later. check article
+      login: '/login',
+      logout: '/logout', // change to login later. check article
       home: '/'
     },
     strategies: {

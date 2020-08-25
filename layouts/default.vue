@@ -6,7 +6,6 @@
       dark
       :mini-variant="miniVariant"
       :clipped="clipped"
-      fixed
       app
     >
       <v-list-item>
@@ -39,7 +38,7 @@
     </v-navigation-drawer>
     <!-- navbar goes here  -->
     <!-- <Navbar></Navbar> -->
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar :clipped-left="clipped" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
