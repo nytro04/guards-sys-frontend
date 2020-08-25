@@ -1,0 +1,3 @@
+refactor user reg/login component
+add notification toastr or sweetalert
+add logout api endpoint 

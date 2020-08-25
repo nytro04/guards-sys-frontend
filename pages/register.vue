@@ -63,6 +63,7 @@
 
 <script>
 export default {
+  middlware: ['auth-admin'],
   // props: {
   //   loginUser
   // },

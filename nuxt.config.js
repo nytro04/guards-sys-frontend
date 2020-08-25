@@ -108,8 +108,8 @@ export default {
   auth: {
     redirect: {
       login: '/login',
-      logout: '/logout', // change to login later. check article
-       home: '/'
+      // logout: '/logout', // change to login later. check article
+      home: '/'
     },
     strategies: {
       local: {
