@@ -3,6 +3,7 @@
  *  works with store and how it will interact
  * my custom function. Will comeback and
  * refactor when need be.(have enough knowledge)
+ * I'm siding with simplicity
  * */
 
 export default {
