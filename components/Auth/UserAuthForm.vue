@@ -27,9 +27,11 @@
                     label="Password"
                     name="password"
                     prepend-icon="mdi-lock"
-                    type="password"
+                    :type="showPassword ? 'text' : 'password'"
+                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                     :rules="passwordRules"
                     required
+                    @click="showPassword = !showPassword"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
@@ -38,8 +40,8 @@
                 <v-btn
                   :disabled="!isValid"
                   color="primary"
-                  @click.prevent="loginUser"
-                  >Login</v-btn
+                  @click.prevent="submitForm(userInfo)"
+                  >{{ buttonText }}</v-btn
                 >
               </v-card-actions>
             </v-card>
@@ -52,14 +54,21 @@
 
 <script>
 export default {
-  // props: {
-  //   loginUser
-  // },
+  props: {
+    submitForm: {
+      required: true,
+      type: Function
+    },
+    buttonText: {
+      required: true,
+      type: String
+    }
+  },
   data() {
     return {
       // this.$refs.form.reset to reset form after form submission
       isValid: true,
-      showPassword: false,
+      showPassword: true,
       isLoading: false,
       userInfo: {
         email: '',
@@ -88,24 +97,22 @@ export default {
     }
   },
   methods: {
-    async loginUser() {
-      try {
-        this.isLoading = true
-        const res = await this.$auth.loginWith('local', {
-          data: this.userInfo
-        })
-        this.isLoading = false
-        const user = res.data.data.user
-        this.$auth.setUser(user)
-
-        // console.log('User ==', this.$auth.user)
-        // this.$refs.form.reset()
-      } catch (errors) {
-        this.isLoading = false
-
-        // console.log(errors)
-      }
-    }
+    // async loginUser() {
+    //   try {
+    //     this.isLoading = true
+    //     const res = await this.$auth.loginWith('local', {
+    //       data: this.userInfo
+    //     })
+    //     this.isLoading = false
+    //     const user = res.data.data.user
+    //     this.$auth.setUser(user)
+    //     // console.log('User ==', this.$auth.user)
+    //     // this.$refs.form.reset()
+    //   } catch (errors) {
+    //     this.isLoading = false
+    //     // console.log(errors)
+    //   }
+    // }
   },
   head() {
     return {
