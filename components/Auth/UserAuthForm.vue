@@ -31,7 +31,7 @@
                     :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                     :rules="passwordRules"
                     required
-                    @click="showPassword = !showPassword"
+                    @click:append="showPassword = !showPassword"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
