@@ -12,6 +12,16 @@
               <v-card-text>
                 <v-form ref="form" v-model="isValid">
                   <v-text-field
+                    v-if="hasName"
+                    v-model="userInfo.name"
+                    label="Name"
+                    name="name"
+                    prepend-icon="mdi-account"
+                    type="text"
+                    :rules="nameRules"
+                    required
+                  ></v-text-field>
+                  <v-text-field
                     v-model="userInfo.email"
                     label="Email"
                     name="email"
@@ -62,6 +72,10 @@ export default {
     buttonText: {
       required: true,
       type: String
+    },
+    hasName: {
+      default: false,
+      type: Boolean
     }
   },
   data() {
@@ -74,6 +88,11 @@ export default {
         email: '',
         password: ''
       },
+      nameRules: [
+        (v) => !!v || 'Name is required',
+        (v) =>
+          (v && v.length > 3) || 'Name must be more than three(3) character'
+      ],
       emailRules: [
         (v) => !!v || 'Email is required',
         (v) =>
