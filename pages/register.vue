@@ -2,7 +2,7 @@
   <UserAuthForm
     :submitForm="registerUser"
     :buttonText="buttonText"
-    :hasName="hasName"
+    :isRegister="isRegister"
   />
 </template>
 
@@ -18,17 +18,18 @@ export default {
   data() {
     return {
       buttonText: 'Register',
-      hasName: true
+      isRegister: true
     }
   },
   methods: {
-    async registerUser() {
+    async registerUser(registerInfo) {
       try {
         this.isLoading = true
 
-        await this.$axios.post('/users/signup', this.userInfo)
+        await this.$axios.post('/users/signup', registerInfo)
+        console.log('user info***', registerInfo)
         const res = await this.$auth.loginWith('local', {
-          data: this.userInfo
+          data: registerInfo
         })
         this.isLoading = false
         const user = res.data.data.user

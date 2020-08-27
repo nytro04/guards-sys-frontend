@@ -11,13 +11,22 @@
               </v-toolbar>
               <v-card-text>
                 <v-form ref="form" v-model="isValid">
+                  <v-select
+                    v-if="isRegister"
+                    v-model="userInfo.role"
+                    :items="userRoles"
+                    prepend-icon="mdi-account-details"
+                    :rules="[(v) => !!v || 'Item is required']"
+                    label="User Role"
+                    required
+                  ></v-select>
                   <v-text-field
-                    v-if="hasName"
+                    v-if="isRegister"
                     v-model="userInfo.name"
                     label="Name"
                     name="name"
-                    prepend-icon="mdi-account"
                     type="text"
+                    prepend-icon="mdi-account"
                     :rules="nameRules"
                     required
                   ></v-text-field>
@@ -25,7 +34,7 @@
                     v-model="userInfo.email"
                     label="Email"
                     name="email"
-                    prepend-icon="mdi-account"
+                    prepend-icon="mdi-email"
                     type="email"
                     :rules="emailRules"
                     required
@@ -36,6 +45,19 @@
                     v-model="userInfo.password"
                     label="Password"
                     name="password"
+                    prepend-icon="mdi-lock"
+                    :type="showPassword ? 'text' : 'password'"
+                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                    :rules="passwordRules"
+                    required
+                    @click:append="showPassword = !showPassword"
+                  ></v-text-field>
+                  <v-text-field
+                    v-if="isRegister"
+                    id="passwordConfirm"
+                    v-model="userInfo.passwordConfirm"
+                    label="Confirm Password"
+                    name="passwordConfirm"
                     prepend-icon="mdi-lock"
                     :type="showPassword ? 'text' : 'password'"
                     :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
@@ -73,7 +95,7 @@ export default {
       required: true,
       type: String
     },
-    hasName: {
+    isRegister: {
       default: false,
       type: Boolean
     }
@@ -84,9 +106,13 @@ export default {
       isValid: true,
       showPassword: true,
       isLoading: false,
+      userRoles: ['user', 'staff', 'admin', 'super-amin'],
       userInfo: {
+        role: '',
+        name: '',
         email: '',
-        password: ''
+        password: '',
+        passwordConfirm: ''
       },
       nameRules: [
         (v) => !!v || 'Name is required',

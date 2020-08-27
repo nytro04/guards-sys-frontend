@@ -52,9 +52,9 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <div v-if="$auth.loggedIn">
-        {{ $auth.user.email }}
-        <!-- todo: add api endpoint for logout to auth in nuxt config -->
-        <v-btn @click="$auth.logout()">Logout</v-btn>
+        {{ $auth.user.name }}
+        "cool things"
+        <v-btn text @click="$auth.logout()">Logout</v-btn>
       </div>
 
       <!-- <div v-if="!auth.loggedIn"> -->
@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 export default {
   components: {
     // Navbar: () => import('@/components/layout/Navbar'), // only load global components eg. navbar and footer in the defaults layout.
@@ -104,15 +104,9 @@ export default {
       rightDrawer: false,
       title: 'Guard-sys'
     }
-  },
-  computed: {
-    ...mapState(['auth'])
-  },
-  methods: {
-    // logOut() {
-    //   this.$store.dispatch('logOut')
-    //   this.$router.push('/login')
-    // }
   }
+  // computed: {
+  //   ...mapState(['auth'])
+  // }
 }
 </script>
