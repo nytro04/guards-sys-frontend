@@ -11,7 +11,7 @@ export default function({ $axios, store, redirect }) {
         response.request.responseURL &&
         response.request.responseURL.includes('login')
       ) {
-        store.dispatch('setUser', response)
+        store.dispatch('setUser', response.data.data)
       }
     }
     return response
