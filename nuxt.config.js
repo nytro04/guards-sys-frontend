@@ -134,12 +134,12 @@ export default {
 
           // user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
         },
-        // tokenType: '',
-        tokenName: 'guards-jwt'
+
+        tokenName: 'guards-jwt',
+        autoFetchUser: false
         // tokenRequired: true,
         // tokenType: 'bearer'
         // globalToken: true,
-        // autoFetchUser: true
       }
     }
   }

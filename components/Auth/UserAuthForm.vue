@@ -104,7 +104,7 @@ export default {
     return {
       // this.$refs.form.reset to reset form after form submission
       isValid: true,
-      showPassword: true,
+      showPassword: false,
       isLoading: false,
       userRoles: ['user', 'staff', 'admin', 'super-amin'],
       userInfo: {
@@ -141,24 +141,7 @@ export default {
       ]
     }
   },
-  methods: {
-    // async loginUser() {
-    //   try {
-    //     this.isLoading = true
-    //     const res = await this.$auth.loginWith('local', {
-    //       data: this.userInfo
-    //     })
-    //     this.isLoading = false
-    //     const user = res.data.data.user
-    //     this.$auth.setUser(user)
-    //     // console.log('User ==', this.$auth.user)
-    //     // this.$refs.form.reset()
-    //   } catch (errors) {
-    //     this.isLoading = false
-    //     // console.log(errors)
-    //   }
-    // }
-  },
+  methods: {},
   head() {
     return {
       title: 'Login',
