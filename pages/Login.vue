@@ -30,10 +30,12 @@ export default {
         this.$toast.success('Login Successful')
 
         // this.$refs.form.reset()
-      } catch (errors) {
+      } catch (err) {
         this.isLoading = false
-        console.log(errors.stack)
-        this.$toast.success(`Login Error ${errors}`)
+        console.log(err.response)
+        this.$toast.error(`Login Error: ${err.response.data.message}`, {
+          timeout: 10000
+        })
 
         // console.log(errors)
       }
