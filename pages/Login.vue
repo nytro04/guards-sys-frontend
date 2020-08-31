@@ -24,12 +24,16 @@ export default {
           data: loginInfo
         })
         this.isLoading = false
+
         const user = res.data.data.user
         this.$auth.setUser(user)
+        this.$toast.success('Login Successful')
 
         // this.$refs.form.reset()
       } catch (errors) {
         this.isLoading = false
+        console.log(errors.stack)
+        this.$toast.success(`Login Error ${errors}`)
 
         // console.log(errors)
       }

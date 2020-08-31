@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+
 require('dotenv').config()
 
 export default {
@@ -61,7 +62,16 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+    // '@nuxtjs/toast'
+    [
+      'vue-toastification/nuxt',
+      {
+        timeout: 3000,
+        draggable: false
+        // hideProgressBar: true
+      }
+    ]
   ],
   /*
    ** Axios module configuration
@@ -71,6 +81,21 @@ export default {
     baseURL: process.env.API_URL
     // credentials: true
   },
+  // toast: {
+  //   position: 'top-right',
+  //   duration: 3000,
+  //   register: [
+  //     // Register custom toasts
+  //     {
+  //       name: 'my-error',
+  //       message: 'Oops...Something went wrong',
+  //       options: {
+  //         type: 'error'
+  //       }
+  //     }
+  //   ]
+  // },
+
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
