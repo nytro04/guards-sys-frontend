@@ -53,7 +53,6 @@
       <v-spacer />
       <div v-if="$auth.loggedIn">
         {{ $auth.user.name }}
-        "cool things"
         <v-btn text @click="$auth.logout()">Logout</v-btn>
       </div>
 

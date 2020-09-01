@@ -2,3 +2,6 @@ refactor user reg/login component
 add notification toastr or sweetalert
 clear out forms with login
 add logout api endpoint  === done
+
+
+check out error page

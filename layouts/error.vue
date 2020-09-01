@@ -6,15 +6,18 @@
     <h1 v-else>
       {{ otherError }}
     </h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
+    <nuxt-link to="/">
+      Or see our sitemaps
+    </nuxt-link>
+
+    <nuxt-link to="/dashboard">Go back</nuxt-link>
   </v-app>
 </template>
 
 <script>
 export default {
-  layout: 'empty',
+  // layout: 'login',
+  // middleware: 'auth',
   props: {
     error: {
       type: Object,

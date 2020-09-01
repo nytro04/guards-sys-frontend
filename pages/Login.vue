@@ -28,6 +28,7 @@ export default {
         const user = res.data.data.user
         this.$auth.setUser(user)
         this.$toast.success('Login Successful')
+        // this.$toast.success(`Welcome ${this.$auth.user}`)
 
         // this.$refs.form.reset()
       } catch (err) {
