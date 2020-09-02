@@ -52,7 +52,24 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <div v-if="$auth.loggedIn">
-        {{ $auth.user.name }}
+        <v-menu offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-list-item-avatar v-bind="attrs" v-on="on">
+              <img src="~/assets/img/guard-sys-logo-temp.jpg" />
+            </v-list-item-avatar>
+
+            <!-- <v-btn color="primary" dark v-bind="attrs" v-on="on"> -->
+            {{ $auth.user.name }}
+            <!-- </v-btn> -->
+          </template>
+          <v-list>
+            <v-list-item v-for="(item, index) in items" :key="index">
+              <!-- @click="" -->
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+
         <v-btn text @click="$auth.logout()">Logout</v-btn>
       </div>
 
