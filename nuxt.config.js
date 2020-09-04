@@ -133,7 +133,7 @@ export default {
   auth: {
     redirect: {
       login: '/login',
-      logout: '/login' // change to login later. check article
+      logout: '/' // change to login later. check article
       // home: '/'
     },
     strategies: {

@@ -1,2 +1,7 @@
-@import 'components/base';
+// base
+
+@import '/base';
+@import '/layout';
+
+// components
 @import 'components/login';
