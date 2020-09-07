@@ -1,6 +1,14 @@
 <template>
-  <div class="main-wrapper">
-    
+  <div class="">
+    <div class="auth-form">
+      <form>
+        <label for="email"></label>
+        <input id="email" type="text" name="email" />
+
+        <label for="password"></label>
+        <input id="password" type="password" name="password" />
+      </form>
+    </div>
   </div>
 </template>
 
