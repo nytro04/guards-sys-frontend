@@ -15,11 +15,13 @@
 
   header {
     background-color: $primary-color;
+  }
+  &__logo {
+    height: 3rem;
+    width: auto;
 
-    img {
-      height: 3rem;
-      width: auto;
-    }
+    display: block;
+    margin: 0 auto;
   }
 }
 

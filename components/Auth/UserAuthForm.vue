@@ -2,8 +2,12 @@
   <div class="auth">
     <div class="">
       <form>
+        <img
+          src="~/assets/img/guard-sys-logo-temp.jpg"
+          class="auth__logo"
+          alt="guards sys"
+        />
         <header>
-          <img src="~/assets/img/guard-sys-logo-temp.jpg" alt="guards sys" />
           <h2>Guards sys</h2>
           <h2>Login or Register</h2>
         </header>
