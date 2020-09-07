@@ -1,7 +1,9 @@
 // base
 
+@import './color';
 @import './base';
 @import './layout';
+@import './components';
 
 // components
 @import 'components/login';
