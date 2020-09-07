@@ -1,4 +1,4 @@
-.login {
+.auth {
   height: 100vh;
   background-image: linear-gradient(
       to right bottom,
@@ -8,6 +8,19 @@
     url(~assets/img/newimage2.jpg) !important;
   background-size: cover !important;
   width: 100% !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  header {
+    background-color: $primary-color;
+
+    img {
+      height: 3rem;
+      width: auto;
+    }
+  }
 }
 
 // .test {

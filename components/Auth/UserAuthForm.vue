@@ -1,7 +1,12 @@
 <template>
-  <div class="">
-    <div class="auth-form">
+  <div class="auth">
+    <div class="">
       <form>
+        <header>
+          <img src="~/assets/img/guard-sys-logo-temp.jpg" alt="guards sys" />
+          <h2>Guards sys</h2>
+          <h2>Login or Register</h2>
+        </header>
         <label for="email"></label>
         <input id="email" type="text" name="email" />
 
