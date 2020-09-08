@@ -1,14 +1,8 @@
 <template>
   <div class="auth">
-    <div class="">
+    <div class="auth__compo">
       <form>
-        <img
-          src="~/assets/img/guard-sys-logo-temp.jpg"
-          class="auth__logo"
-          alt="guards sys"
-        />
         <header>
-          <h2>Guards sys</h2>
           <h2>Login or Register</h2>
         </header>
         <label for="email"></label>
