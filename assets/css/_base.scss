@@ -1,0 +1,16 @@
+*,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  line-height: 1.7;
+  font-size: 62.5% !important; // 1rem == 10px i.e 10px/16px = 62.5
+}
+
+body {
+  font-weight: 400;
+}

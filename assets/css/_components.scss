@@ -1,0 +1,22 @@
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  display: block;
+  padding: 1rem 3rem 1rem 1rem;
+  font-size: 1.4rem;
+  border-radius: 3px;
+  box-shadow: none;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.5;
+  height: 4rem;
+  background-color: $light-grey;
+  //   width: 150%;
+  border: 1.2px solid $light-grey;
+  //   outline: none;
+
+  &:focus {
+    outline: none;
+    border: 1px solid $primary-color;
+  }
+}

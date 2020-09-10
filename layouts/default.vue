@@ -52,22 +52,56 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <div v-if="$auth.loggedIn">
-        <v-menu offset-y>
+        <!-- <v-menu offset-y min-width="200">
           <template v-slot:activator="{ on, attrs }">
             <v-list-item-avatar v-bind="attrs" v-on="on">
               <img src="~/assets/img/guard-sys-logo-temp.jpg" />
             </v-list-item-avatar>
 
-            <!-- <v-btn color="primary" dark v-bind="attrs" v-on="on"> -->
             {{ $auth.user.name }}
-            <!-- </v-btn> -->
           </template>
           <v-list>
-            <v-list-item v-for="(item, index) in items" :key="index">
-              <!-- @click="" -->
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item v-for="(item, index) in userItems" :key="index">
+              <v-list-item-title>{{ item.item }}</v-list-item-title>
             </v-list-item>
           </v-list>
+        </v-menu> -->
+
+        <v-menu
+          bottom
+          left
+          content-class="dropdown-menu"
+          offset-y
+          transition="slide-y-transition"
+        >
+          <router-link
+            v-ripple
+            slot="activator"
+            class="toolbar-items"
+            to="/notifications"
+          >
+            <v-badge color="error" overlap>
+              <v-list-item-avatar v-bind="attrs" v-on="on">
+                <img src="~/assets/img/guard-sys-logo-temp.jpg" />
+              </v-list-item-avatar>
+              <template slot="badge">
+                <!-- {{ notifications.length }} -->
+                7
+              </template>
+              <!-- <v-icon color="tertiary">mdi-bell</v-icon> -->
+            </v-badge>
+          </router-link>
+          <v-card>
+            <v-list dense>
+              <v-list-tile
+                v-for="notification in notifications"
+                :key="notification"
+                @click="onClick"
+              >
+                <v-list-tile-title v-text="notification" />
+              </v-list-tile>
+            </v-list>
+          </v-card>
         </v-menu>
 
         <v-btn text @click="$auth.logout()">Logout</v-btn>
@@ -103,6 +137,20 @@ export default {
       clipped: false,
       drawer: false,
       // fixed: false,
+      userItems: [
+        {
+          item: 'Profile',
+          to: '/user'
+        },
+        {
+          item: 'profile',
+          to: '/to'
+        },
+        {
+          item: 'logout',
+          to: '/logout'
+        }
+      ],
       items: [
         {
           icon: 'mdi-apps',
