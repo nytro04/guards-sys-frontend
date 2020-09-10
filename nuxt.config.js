@@ -45,7 +45,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/axios'],
+  plugins: [
+    { src: '~/plugins/axios', ssr: true },
+    { src: '~/plugins/vue-formulate', ssr: true }
+  ],
   /*
    ** Nuxt.js dev-modules
    */

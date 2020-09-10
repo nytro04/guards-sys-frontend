@@ -1,87 +1,29 @@
 <template>
-  <v-app id="inspire" class="login">
-    <v-main>
-      <v-container class="fill-height" fluid>
-        <v-row align="center" justify="center">
-          <v-col cols="12" sm="8" md="4">
-            <v-card class="elevation-12">
-              <v-toolbar color="primary" dark flat>
-                <v-toolbar-title>Login form</v-toolbar-title>
-                <v-spacer></v-spacer>
-              </v-toolbar>
-              <v-card-text>
-                <v-form ref="form" v-model="isValid">
-                  <v-select
-                    v-if="isRegister"
-                    v-model="userInfo.role"
-                    :items="userRoles"
-                    prepend-icon="mdi-account-details"
-                    :rules="[(v) => !!v || 'Item is required']"
-                    label="User Role"
-                    required
-                  ></v-select>
-                  <v-text-field
-                    v-if="isRegister"
-                    v-model="userInfo.name"
-                    label="Name"
-                    name="name"
-                    type="text"
-                    prepend-icon="mdi-account"
-                    :rules="nameRules"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="userInfo.email"
-                    label="Email"
-                    name="email"
-                    prepend-icon="mdi-email"
-                    type="email"
-                    :rules="emailRules"
-                    required
-                  ></v-text-field>
+  <div class="auth">
+    <div class="auth auth__form">
+      <FormulateForm v-model="formValues" class="login-form">
+        <h2 class="form-title">Login</h2>
 
-                  <v-text-field
-                    id="password"
-                    v-model="userInfo.password"
-                    label="Password"
-                    name="password"
-                    prepend-icon="mdi-lock"
-                    :type="showPassword ? 'text' : 'password'"
-                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                    :rules="passwordRules"
-                    required
-                    @click:append="showPassword = !showPassword"
-                  ></v-text-field>
-                  <v-text-field
-                    v-if="isRegister"
-                    id="passwordConfirm"
-                    v-model="userInfo.passwordConfirm"
-                    label="Confirm Password"
-                    name="passwordConfirm"
-                    prepend-icon="mdi-lock"
-                    :type="showPassword ? 'text' : 'password'"
-                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                    :rules="passwordRules"
-                    required
-                    @click:append="showPassword = !showPassword"
-                  ></v-text-field>
-                </v-form>
-              </v-card-text>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn
-                  :disabled="!isValid"
-                  color="primary"
-                  @click.prevent="submitForm(userInfo)"
-                  >{{ buttonText }}</v-btn
-                >
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
-  </v-app>
+        <FormulateInput
+          name="email"
+          type="email"
+          label="Email address"
+          placeholder="Email address"
+          validation="required|email"
+        />
+
+        <FormulateInput
+          name="password"
+          type="password"
+          label="Password"
+          placeholder="Your password"
+          validation="required"
+        />
+
+        <FormulateInput type="submit" label="Register" />
+      </FormulateForm>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -162,3 +104,36 @@ export default {
   // }
 }
 </script>
+<style lang="scss" scoped>
+.login-form {
+  padding: 2em;
+  border: 1px solid #a8a8a8;
+  border-radius: 0.5em;
+  // max-width: auto;
+  height: 40vh;
+  width: 40rem;
+  box-sizing: border-box;
+  background-color: whitesmoke;
+}
+.form-title {
+  margin-top: 0;
+}
+.login-form::v-deep .formulate-input .formulate-input-element {
+  max-width: none;
+}
+@media (min-width: 420px) {
+  .double-wide {
+    display: flex;
+  }
+  .double-wide .formulate-input {
+    flex-grow: 1;
+    width: calc(50% - 0.5em);
+  }
+  .double-wide .formulate-input:first-child {
+    margin-right: 0.5em;
+  }
+  .double-wide .formulate-input:last-child {
+    margin-left: 0.5em;
+  }
+}
+</style>

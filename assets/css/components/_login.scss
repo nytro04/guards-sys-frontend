@@ -8,6 +8,26 @@
     url(~assets/img/newimage2.jpg) !important;
   background-size: cover !important;
   width: 100% !important;
+<<<<<<< HEAD
+=======
+
+
+  &__form {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    min-height: 100vh;
+
+
+    form {
+      background-color: $light-grey;
+      height: 10rem;
+    }
+  }
+
+>>>>>>> cb23807... fixes: change user auth and replace with vueformulate
 }
 
 // .test {
