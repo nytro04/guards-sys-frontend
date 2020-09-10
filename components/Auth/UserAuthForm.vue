@@ -1,16 +1,27 @@
 <template>
   <div class="auth">
-    <div class="auth__compo">
-      <form>
-        <header>
-          <h2>Login or Register</h2>
-        </header>
-        <label for="email"></label>
-        <input id="email" type="text" name="email" />
+    <div class="auth auth__form">
+      <FormulateForm v-model="formValues" class="login-form">
+        <h2 class="form-title">Login</h2>
 
-        <label for="password"></label>
-        <input id="password" type="password" name="password" />
-      </form>
+        <FormulateInput
+          name="email"
+          type="email"
+          label="Email address"
+          placeholder="Email address"
+          validation="required|email"
+        />
+
+        <FormulateInput
+          name="password"
+          type="password"
+          label="Password"
+          placeholder="Your password"
+          validation="required"
+        />
+
+        <FormulateInput type="submit" label="Register" />
+      </FormulateForm>
     </div>
   </div>
 </template>
@@ -93,3 +104,36 @@ export default {
   // }
 }
 </script>
+<style lang="scss" scoped>
+.login-form {
+  padding: 2em;
+  border: 1px solid #a8a8a8;
+  border-radius: 0.5em;
+  // max-width: auto;
+  height: 40vh;
+  width: 40rem;
+  box-sizing: border-box;
+  background-color: whitesmoke;
+}
+.form-title {
+  margin-top: 0;
+}
+.login-form::v-deep .formulate-input .formulate-input-element {
+  max-width: none;
+}
+@media (min-width: 420px) {
+  .double-wide {
+    display: flex;
+  }
+  .double-wide .formulate-input {
+    flex-grow: 1;
+    width: calc(50% - 0.5em);
+  }
+  .double-wide .formulate-input:first-child {
+    margin-right: 0.5em;
+  }
+  .double-wide .formulate-input:last-child {
+    margin-left: 0.5em;
+  }
+}
+</style>

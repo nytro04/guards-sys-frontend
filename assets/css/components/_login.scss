@@ -9,17 +9,22 @@
   background-size: cover !important;
   width: 100% !important;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  &__compo {
-    border-radius: 3px; 
-    header {
-      background-color: $primary-color;
-      height: 5rem;
+  &__form {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    min-height: 100vh;
+
+
+    form {
+      background-color: $light-grey;
+      height: 10rem;
     }
   }
+
 }
 
 // .test {
